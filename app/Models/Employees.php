@@ -13,7 +13,7 @@ class Employees extends Model
     ];
     use HasFactory;
 
-    protected $fillable = ['user_id','name', 'email','bio'];
+    protected $fillable = ['user_id','name', 'email','date_of_joining','bio'];
 
     public function getDateOfJoiningAttribute($value){
         return Carbon::parse($value)->format('d-m-Y');

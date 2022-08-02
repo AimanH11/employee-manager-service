@@ -1,5 +1,5 @@
 <?php
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmployeeDataController;;
 /*
@@ -18,5 +18,8 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-Route::resource('/employees', EmployeeDataController::class);
+Route::group(['middleware' => 'auth'], function () {
+    Route::resource('/employees', EmployeeDataController::class);
+  });
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

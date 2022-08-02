@@ -1,11 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use App\Services\EmployeeService;
 use App\Models\Employees;
 use Illuminate\Http\Request;
-
 
 class EmployeeDataController extends Controller
 {
@@ -17,6 +16,7 @@ class EmployeeDataController extends Controller
     protected $employeeService;
 
     public function __construct(
+
         EmployeeService $employeeService
     ) {
         $this->employeeService = $employeeService;
@@ -24,7 +24,9 @@ class EmployeeDataController extends Controller
     public function index()
     {
 
+
         $data =  $this->employeeService->getEmployees();
+
         return view('employees.index')->with('employeeArray', $data);
     }
 
@@ -47,7 +49,7 @@ class EmployeeDataController extends Controller
     public function store(Request $request)
     {
         $result = $this->employeeService->createEmployee($request);
-        $request->session()->flash('msg', 'Employee updated sucessfully');
+
         return view('home');
     }
 

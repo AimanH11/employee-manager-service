@@ -70,7 +70,7 @@ return [
     'ipv6' => 'The :attribute must be a valid IPv6 address.',
     'json' => 'The :attribute must be a valid JSON string.',
     'lt' => [
-        'numeric' => 'The :attribute must be less than :value.',
+        'numeric' => 'The :attribute must be than :value.',
         'file' => 'The :attribute must be less than :value kilobytes.',
         'string' => 'The :attribute must be less than :value characters.',
         'array' => 'The :attribute must have less than :value items.',
